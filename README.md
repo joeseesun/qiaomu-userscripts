@@ -1,7 +1,7 @@
 # 乔木油猴脚本
 
-> 给日常内容生产补上几个顺手按钮：微信公众号和抖音支持剪贴板图片上传，X 信息流自动翻译，公众号编辑器可快速插入 HTML。
-> Small Tampermonkey scripts for content workflows: paste images into WeChat/Douyin editors, translate X posts, and insert HTML into WeChat articles.
+> 给日常内容生产补上几个顺手按钮：微信公众号、抖音和小红书支持剪贴板图片上传，X 信息流自动翻译，公众号编辑器可快速插入 HTML。
+> Small Tampermonkey scripts for content workflows: paste images into WeChat/Douyin/Xiaohongshu editors, translate X posts, and insert HTML into WeChat articles.
 
 [![GitHub stars](https://img.shields.io/github/stars/joeseesun/qiaomu-userscripts?style=social)](https://github.com/joeseesun/qiaomu-userscripts/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/joeseesun/qiaomu-userscripts?style=social)](https://github.com/joeseesun/qiaomu-userscripts/forks)
@@ -16,7 +16,7 @@
 <a name="中文"></a>
 ## 中文
 
-你在公众号、抖音、X 之间来回切图、复制、翻译、排版时，最烦的不是功能不会用，而是每一步都要点很多次。
+你在公众号、抖音、小红书、X 之间来回切图、复制、翻译、排版时，最烦的不是功能不会用，而是每一步都要点很多次。
 
 这组脚本把几个高频动作直接塞进页面里：复制图片后按 `Ctrl+V` / `Command+V` 上传，刷 X 时自动生成中文翻译卡片，公众号里一键插入剪贴板 HTML。
 
@@ -24,6 +24,7 @@
 
 - 微信公众号图片粘贴上传：优先走微信页面里的官方上传控件，减少误触内部接口带来的风险。
 - 抖音图文图片粘贴上传：自动识别图片上传控件，支持多图剪贴板。
+- 小红书图片粘贴上传：在发布/笔记编辑页直接把剪贴板图片交给上传控件。
 - X 自动翻译：支持 Markdown 输出，翻译卡片可展开/隐藏。
 - API Key 本地保存：X 翻译脚本通过 Tampermonkey 菜单配置密钥，不把密钥写进源码。
 - GitHub Raw 安装：每个脚本都带 `@downloadURL` / `@updateURL`，方便安装和后续更新。
@@ -34,6 +35,7 @@
 |---|---|---|---|
 | 微信公众号图文粘贴上传图片 | 在公众号图文编辑页粘贴上传图片 | `mp.weixin.qq.com/cgi-bin/appmsg*`、`operate_appmsg*` | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_paste_upload.js) |
 | 抖音图文粘贴上传图片 | 在抖音创作者图文页粘贴上传图片 | `creator.douyin.com/creator-micro/*` | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/douyin_paste_upload.js) |
+| 小红书粘贴上传图片 | 在小红书发布界面粘贴上传图片 | `creator.xiaohongshu.com/publish/publish*`、`publish/note*` | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/xiaohongshu_paste_upload.js) |
 | Translate X Post with Volces API | 在 X 信息流里生成 Markdown 翻译卡片 | `x.com/*` | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/X%E7%BF%BB%E8%AF%91.js) |
 | 微信公众号插入 HTML | 在公众号编辑器右上角增加“插入HTML”按钮 | 公众号图文编辑、首页 | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_editor_helper.js) |
 
@@ -81,6 +83,13 @@
 3. 按 `Ctrl+V` / `Command+V`。
 4. 脚本会找到图片上传 `input[type=file]` 并触发上传。
 
+### 小红书粘贴上传图片
+
+1. 打开小红书创作服务平台发布页或笔记编辑页。
+2. 复制图片，或者截图后复制到剪贴板。
+3. 按 `Ctrl+V` / `Command+V`。
+4. 脚本会寻找页面里的文件上传控件并触发上传。
+
 ### X 翻译脚本
 
 1. 安装脚本后打开 `https://x.com/`。
@@ -107,6 +116,7 @@ API Key 只保存在 Tampermonkey 本地存储中，不会提交到仓库。不�
 | 脚本显示启用但页面没反应 | 检查页面 URL 是否匹配脚本 `@match`，刷新页面，确认脚本没有被站点 CSP 或其他扩展拦截。 |
 | 微信提示“当前使用的浏览器插件存在安全隐患” | 先禁用其他可疑扩展，只保留 Tampermonkey 和当前脚本测试。当前粘贴上传脚本避免调用微信内部敏感 API，但微信可能根据扩展行为做统一提醒。 |
 | 微信粘贴图片没反应 | 先点击一次编辑器正文、封面/图片上传区域或页面空白处，再按 `Ctrl+V` / `Command+V`。如果仍失败，打开控制台看 `[WeChat Paste Upload]` 日志。 |
+| 小红书粘贴图片没反应 | 确认在发布页或笔记编辑页，先点击一次上传区域或页面空白处，再粘贴；如果仍失败，刷新页面后重试。 |
 | X 翻译没有结果 | 先在 Tampermonkey 菜单配置 API Key；再检查火山方舟 Key、Endpoint ID、余额、模型权限和网络。 |
 | X 翻译卡片内容异常 | X DOM 经常变化，先刷新页面；如果长期失效，提交 issue 并附上页面 URL 类型和控制台错误。 |
 | 自动更新失败 | 打开 Tampermonkey Dashboard，进入脚本设置，确认 `@updateURL` 指向 GitHub Raw 地址。 |
@@ -132,6 +142,7 @@ cd qiaomu-userscripts
 
 ```bash
 node --check douyin_paste_upload.js
+node --check xiaohongshu_paste_upload.js
 node --check weixin_paste_upload.js
 node --check weixin_editor_helper.js
 node --check X翻译.js
@@ -142,7 +153,7 @@ node --check X翻译.js
 <a name="english"></a>
 ## English
 
-Qiaomu Userscripts is a small Tampermonkey collection for content workflows: paste clipboard images into WeChat/Douyin editors, translate X posts with Volcengine Ark, and insert HTML into the WeChat public account editor.
+Qiaomu Userscripts is a small Tampermonkey collection for content workflows: paste clipboard images into WeChat/Douyin/Xiaohongshu editors, translate X posts with Volcengine Ark, and insert HTML into the WeChat public account editor.
 
 ## Scripts
 
@@ -150,6 +161,7 @@ Qiaomu Userscripts is a small Tampermonkey collection for content workflows: pas
 |---|---|---|
 | WeChat paste image upload | Paste clipboard images into WeChat article editor upload controls | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_paste_upload.js) |
 | Douyin paste image upload | Paste clipboard images into Douyin creator image posts | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/douyin_paste_upload.js) |
+| Xiaohongshu paste image upload | Paste clipboard images into Xiaohongshu publish pages | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/xiaohongshu_paste_upload.js) |
 | X translator with Volces API | Adds Markdown translation cards below X posts | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/X%E7%BF%BB%E8%AF%91.js) |
 | WeChat HTML inserter | Adds an HTML insert button to the WeChat editor | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_editor_helper.js) |
 
