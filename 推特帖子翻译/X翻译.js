@@ -13,8 +13,8 @@
 // @run-at       document-idle
 // @require      https://cdn.jsdelivr.net/npm/marked@5.1.2/marked.min.js
 // @require      https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js
-// @downloadURL  https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/X%E7%BF%BB%E8%AF%91.js
-// @updateURL    https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/X%E7%BF%BB%E8%AF%91.js
+// @downloadURL  https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%8E%A8%E7%89%B9%E5%B8%96%E5%AD%90%E7%BF%BB%E8%AF%91/X%E7%BF%BB%E8%AF%91.js
+// @updateURL    https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%8E%A8%E7%89%B9%E5%B8%96%E5%AD%90%E7%BF%BB%E8%AF%91/X%E7%BF%BB%E8%AF%91.js
 // @homepageURL  https://github.com/joeseesun/qiaomu-userscripts
 // @supportURL   https://github.com/joeseesun/qiaomu-userscripts/issues
 // ==/UserScript==

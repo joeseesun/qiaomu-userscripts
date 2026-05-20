@@ -7,8 +7,8 @@
 // @match        https://creator.douyin.com/creator-micro/*
 // @grant        none
 // @run-at       document-end
-// @downloadURL  https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/douyin_paste_upload.js
-// @updateURL    https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/douyin_paste_upload.js
+// @downloadURL  https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%8A%96%E9%9F%B3%E5%9B%BE%E6%96%87%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/douyin_paste_upload.js
+// @updateURL    https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%8A%96%E9%9F%B3%E5%9B%BE%E6%96%87%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/douyin_paste_upload.js
 // @homepageURL  https://github.com/joeseesun/qiaomu-userscripts
 // @supportURL   https://github.com/joeseesun/qiaomu-userscripts/issues
 // ==/UserScript==

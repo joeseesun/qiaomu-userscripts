@@ -1,7 +1,7 @@
 # 乔木油猴脚本
 
-> 给日常内容生产补上几个顺手按钮：微信公众号、抖音和小红书支持剪贴板图片上传，X 信息流自动翻译，公众号编辑器可快速插入 HTML。
-> Small Tampermonkey scripts for content workflows: paste images into WeChat/Douyin/Xiaohongshu editors, translate X posts, and insert HTML into WeChat articles.
+> 给日常内容生产补上几个顺手按钮：微信公众号、抖音和小红书支持剪贴板图片上传，推特信息流自动翻译，公众号编辑器可快速插入 HTML，油管和小宇宙增加常用播放/导出能力。
+> Small Tampermonkey scripts for content workflows: paste images into WeChat/Douyin/Xiaohongshu editors, translate X posts, insert HTML into WeChat articles, and enhance YouTube/Xiaoyuzhou playback workflows.
 
 [![GitHub stars](https://img.shields.io/github/stars/joeseesun/qiaomu-userscripts?style=social)](https://github.com/joeseesun/qiaomu-userscripts/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/joeseesun/qiaomu-userscripts?style=social)](https://github.com/joeseesun/qiaomu-userscripts/forks)
@@ -16,35 +16,39 @@
 <a name="中文"></a>
 ## 中文
 
-你在公众号、抖音、小红书、X 之间来回切图、复制、翻译、排版时，最烦的不是功能不会用，而是每一步都要点很多次。
+你在公众号、抖音、小红书、推特、油管和小宇宙之间来回切图、复制、翻译、排版、导出和听内容时，最烦的不是功能不会用，而是每一步都要点很多次。
 
-这组脚本把几个高频动作直接塞进页面里：复制图片后按 `Ctrl+V` / `Command+V` 上传，刷 X 时自动生成中文翻译卡片，公众号里一键插入剪贴板 HTML。
+这组脚本把几个高频动作直接塞进页面里：复制图片后按 `Ctrl+V` / `Command+V` 上传，刷推特时自动生成中文翻译卡片，公众号里一键插入剪贴板 HTML，油管页面可导出字幕/评论并控制倍速，小宇宙网页端可快速切换播放速度。
 
 ## 功能亮点
 
 - 微信公众号图片粘贴上传：优先走微信页面里的官方上传控件，减少误触内部接口带来的风险。
 - 抖音图文图片粘贴上传：自动识别图片上传控件，支持多图剪贴板。
 - 小红书图片粘贴上传：在发布/笔记编辑页直接把剪贴板图片交给上传控件。
-- X 自动翻译：支持 Markdown 输出，翻译卡片可展开/隐藏。
-- API Key 本地保存：X 翻译脚本通过 Tampermonkey 菜单配置密钥，不把密钥写进源码。
+- 推特帖子自动翻译：支持 Markdown 输出，翻译卡片可展开/隐藏。
+- 油管助手：支持字幕导出、播放倍速控制和评论导出。
+- 小宇宙倍速播放：在播客详情页增加固定倍速按钮和数字键快捷切换。
+- API Key 本地保存：推特翻译脚本通过 Tampermonkey 菜单配置密钥，不把密钥写进源码。
 - GitHub Raw 安装：每个脚本都带 `@downloadURL` / `@updateURL`，方便安装和后续更新。
 
 ## 脚本清单
 
-| 脚本 | 作用 | 适用页面 | 安装 |
-|---|---|---|---|
-| 微信公众号图文粘贴上传图片 | 在公众号图文编辑页粘贴上传图片 | `mp.weixin.qq.com/cgi-bin/appmsg*`、`operate_appmsg*` | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_paste_upload.js) |
-| 抖音图文粘贴上传图片 | 在抖音创作者图文页粘贴上传图片 | `creator.douyin.com/creator-micro/*` | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/douyin_paste_upload.js) |
-| 小红书粘贴上传图片 | 在小红书发布界面粘贴上传图片 | `creator.xiaohongshu.com/publish/publish*`、`publish/note*` | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/xiaohongshu_paste_upload.js) |
-| Translate X Post with Volces API | 在 X 信息流里生成 Markdown 翻译卡片 | `x.com/*` | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/X%E7%BF%BB%E8%AF%91.js) |
-| 微信公众号插入 HTML | 在公众号编辑器右上角增加“插入HTML”按钮 | 公众号图文编辑、首页 | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_editor_helper.js) |
+| 脚本 | 作用 | 适用页面 | 目录 | 安装 |
+|---|---|---|---|---|
+| 微信公众号图文粘贴上传图片 | 在公众号图文编辑页粘贴上传图片 | `mp.weixin.qq.com/cgi-bin/appmsg*`、`operate_appmsg*` | [说明](微信公众号图文粘贴上传图片/README.md) | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9B%BE%E6%96%87%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/weixin_paste_upload.js) |
+| 微信公众号插入网页代码 | 在公众号编辑器右上角增加“插入HTML”按钮 | 公众号图文编辑、首页 | [说明](微信公众号插入网页代码/README.md) | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8F%92%E5%85%A5%E7%BD%91%E9%A1%B5%E4%BB%A3%E7%A0%81/weixin_editor_helper.js) |
+| 抖音图文粘贴上传图片 | 在抖音创作者图文页粘贴上传图片 | `creator.douyin.com/creator-micro/*` | [说明](抖音图文粘贴上传图片/README.md) | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%8A%96%E9%9F%B3%E5%9B%BE%E6%96%87%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/douyin_paste_upload.js) |
+| 小红书粘贴上传图片 | 在小红书发布界面粘贴上传图片 | `creator.xiaohongshu.com/publish/publish*`、`publish/note*` | [说明](小红书粘贴上传图片/README.md) | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/xiaohongshu_paste_upload.js) |
+| 推特帖子翻译 | 在推特信息流里生成 Markdown 翻译卡片 | `x.com/*` | [说明](推特帖子翻译/README.md) | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%8E%A8%E7%89%B9%E5%B8%96%E5%AD%90%E7%BF%BB%E8%AF%91/X%E7%BF%BB%E8%AF%91.js) |
+| 油管助手 | 增加字幕导出、播放倍速控制和评论导出 | `*.youtube.com/*` | [说明](油管助手/README.md) | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%B2%B9%E7%AE%A1%E5%8A%A9%E6%89%8B/youtube_qiaomu_helper.js) |
+| 小宇宙播客倍速播放 | 在小宇宙网页版播客页增加倍速控制 | `xiaoyuzhoufm.com/episode/*` | [说明](小宇宙播客倍速播放/README.md) | [安装](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%B0%8F%E5%AE%87%E5%AE%99%E6%92%AD%E5%AE%A2%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/%E5%B0%8F%E5%AE%87%E5%AE%99%E6%92%AD%E5%AE%A2%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE.js) |
 
 ## 安装前确认
 
 - [ ] 已安装 Chrome 或 Chromium 内核浏览器。
 - [ ] 已安装 [Tampermonkey / 篡改猴](https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)。
 - [ ] Tampermonkey 已启用，并允许在对应网站运行脚本。
-- [ ] 如果安装 X 翻译脚本，已经准备好自己的火山方舟 API Key 和模型 Endpoint ID。
+- [ ] 如果安装推特翻译脚本，已经准备好自己的火山方舟 API Key 和模型 Endpoint ID。
 - [ ] 安装前愿意先看一眼脚本源码。油猴脚本会在网页上下文中运行，必须只安装你信任的代码。
 
 ## 安装方式
@@ -90,13 +94,13 @@
 3. 按 `Ctrl+V` / `Command+V`。
 4. 脚本会寻找页面里的文件上传控件并触发上传。
 
-### X 翻译脚本
+### 推特帖子翻译
 
 1. 安装脚本后打开 `https://x.com/`。
 2. 点击浏览器右上角 Tampermonkey 图标。
 3. 在当前脚本菜单中选择“配置火山方舟 API Key”。
 4. 输入自己的 API Key 和模型 Endpoint ID。
-5. 刷新 X 页面，脚本会在帖子下方插入中文翻译、回复和词汇卡片。
+5. 刷新推特页面，脚本会在帖子下方插入中文翻译、回复和词汇卡片。
 
 API Key 只保存在 Tampermonkey 本地存储中，不会提交到仓库。不要把自己的 Key 写进脚本源码再公开发布。
 
@@ -108,6 +112,19 @@ API Key 只保存在 Tampermonkey 本地存储中，不会提交到仓库。不�
 4. 根据提示粘贴剪贴板内容。
 5. 脚本会把 HTML 写入当前 ProseMirror 编辑区域。
 
+### 油管助手
+
+1. 打开油管视频页面。
+2. 使用页面中新增的字幕导出按钮，把字幕发送到 NotebookLM/ChatGPT、复制或下载。
+3. 使用倍速快捷键或按钮控制播放速度。
+4. 在评论区加载后，可复制导出评论内容。
+
+### 小宇宙播客倍速播放
+
+1. 打开小宇宙网页版单集页面。
+2. 页面右侧会出现“播放倍速”控制面板。
+3. 点击倍速按钮，或用数字键 `1` 到 `7` 快速切换 `0.5x` 到 `2.0x`。
+
 ## 常见问题
 
 | 问题 | 处理方式 |
@@ -117,8 +134,10 @@ API Key 只保存在 Tampermonkey 本地存储中，不会提交到仓库。不�
 | 微信提示“当前使用的浏览器插件存在安全隐患” | 先禁用其他可疑扩展，只保留 Tampermonkey 和当前脚本测试。当前粘贴上传脚本避免调用微信内部敏感 API，但微信可能根据扩展行为做统一提醒。 |
 | 微信粘贴图片没反应 | 先点击一次编辑器正文、封面/图片上传区域或页面空白处，再按 `Ctrl+V` / `Command+V`。如果仍失败，打开控制台看 `[WeChat Paste Upload]` 日志。 |
 | 小红书粘贴图片没反应 | 确认在发布页或笔记编辑页，先点击一次上传区域或页面空白处，再粘贴；如果仍失败，刷新页面后重试。 |
-| X 翻译没有结果 | 先在 Tampermonkey 菜单配置 API Key；再检查火山方舟 Key、Endpoint ID、余额、模型权限和网络。 |
-| X 翻译卡片内容异常 | X DOM 经常变化，先刷新页面；如果长期失效，提交 issue 并附上页面 URL 类型和控制台错误。 |
+| 推特翻译没有结果 | 先在 Tampermonkey 菜单配置 API Key；再检查火山方舟 Key、Endpoint ID、余额、模型权限和网络。 |
+| 推特翻译卡片内容异常 | 推特 DOM 经常变化，先刷新页面；如果长期失效，提交 issue 并附上页面 URL 类型和控制台错误。 |
+| 油管按钮没有出现 | 先刷新页面，确认 Tampermonkey 允许脚本在 `youtube.com` 运行；油管单页应用导航后可能需要等待页面重新加载控件。 |
+| 小宇宙倍速面板没有出现 | 确认打开的是 `https://www.xiaoyuzhoufm.com/episode/` 开头的单集页面，并等待音频元素加载完成。 |
 | 自动更新失败 | 打开 Tampermonkey Dashboard，进入脚本设置，确认 `@updateURL` 指向 GitHub Raw 地址。 |
 
 ## 安全与限制
@@ -126,7 +145,7 @@ API Key 只保存在 Tampermonkey 本地存储中，不会提交到仓库。不�
 - 这是非官方用户脚本，不属于微信、抖音、X 或 Tampermonkey 官方功能。
 - 目标网站 DOM 或上传流程变化后，脚本可能失效。
 - 不要在脚本中硬编码账号、密码、Cookie、API Key 等敏感信息。
-- X 翻译脚本会把帖子文本发送到你配置的火山方舟接口，请按自己的隐私要求决定是否启用。
+- 推特翻译脚本会把帖子文本发送到你配置的火山方舟接口，请按自己的隐私要求决定是否启用。
 - 公众号 HTML 插入脚本会直接改编辑器 DOM，复杂 HTML 可能被微信编辑器清洗或导致排版变化。
 
 ## 本地开发
@@ -141,11 +160,13 @@ cd qiaomu-userscripts
 发布前建议至少检查：
 
 ```bash
-node --check douyin_paste_upload.js
-node --check xiaohongshu_paste_upload.js
-node --check weixin_paste_upload.js
-node --check weixin_editor_helper.js
-node --check X翻译.js
+node --check 抖音图文粘贴上传图片/douyin_paste_upload.js
+node --check 小红书粘贴上传图片/xiaohongshu_paste_upload.js
+node --check 微信公众号图文粘贴上传图片/weixin_paste_upload.js
+node --check 微信公众号插入网页代码/weixin_editor_helper.js
+node --check 推特帖子翻译/X翻译.js
+node --check 油管助手/youtube_qiaomu_helper.js
+node --check 小宇宙播客倍速播放/小宇宙播客倍速播放.js
 ```
 
 ---
@@ -153,17 +174,19 @@ node --check X翻译.js
 <a name="english"></a>
 ## English
 
-Qiaomu Userscripts is a small Tampermonkey collection for content workflows: paste clipboard images into WeChat/Douyin/Xiaohongshu editors, translate X posts with Volcengine Ark, and insert HTML into the WeChat public account editor.
+Qiaomu Userscripts is a small Tampermonkey collection for content workflows: paste clipboard images into WeChat/Douyin/Xiaohongshu editors, translate X posts with Volcengine Ark, insert HTML into the WeChat public account editor, and add practical YouTube/Xiaoyuzhou playback tools.
 
 ## Scripts
 
 | Script | What it does | Install |
 |---|---|---|
-| WeChat paste image upload | Paste clipboard images into WeChat article editor upload controls | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_paste_upload.js) |
-| Douyin paste image upload | Paste clipboard images into Douyin creator image posts | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/douyin_paste_upload.js) |
-| Xiaohongshu paste image upload | Paste clipboard images into Xiaohongshu publish pages | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/xiaohongshu_paste_upload.js) |
-| X translator with Volces API | Adds Markdown translation cards below X posts | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/X%E7%BF%BB%E8%AF%91.js) |
-| WeChat HTML inserter | Adds an HTML insert button to the WeChat editor | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_editor_helper.js) |
+| WeChat paste image upload | Paste clipboard images into WeChat article editor upload controls | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9B%BE%E6%96%87%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/weixin_paste_upload.js) |
+| WeChat HTML inserter | Adds an HTML insert button to the WeChat editor | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8F%92%E5%85%A5%E7%BD%91%E9%A1%B5%E4%BB%A3%E7%A0%81/weixin_editor_helper.js) |
+| Douyin paste image upload | Paste clipboard images into Douyin creator image posts | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%8A%96%E9%9F%B3%E5%9B%BE%E6%96%87%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/douyin_paste_upload.js) |
+| Xiaohongshu paste image upload | Paste clipboard images into Xiaohongshu publish pages | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/xiaohongshu_paste_upload.js) |
+| X translator with Volces API | Adds Markdown translation cards below X posts | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%8E%A8%E7%89%B9%E5%B8%96%E5%AD%90%E7%BF%BB%E8%AF%91/X%E7%BF%BB%E8%AF%91.js) |
+| YouTube helper | Exports transcripts/comments and controls playback speed | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E6%B2%B9%E7%AE%A1%E5%8A%A9%E6%89%8B/youtube_qiaomu_helper.js) |
+| Xiaoyuzhou playback speed | Adds playback speed controls to Xiaoyuzhou episode pages | [Install](https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%B0%8F%E5%AE%87%E5%AE%99%E6%92%AD%E5%AE%A2%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/%E5%B0%8F%E5%AE%87%E5%AE%99%E6%92%AD%E5%AE%A2%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE.js) |
 
 ## Requirements
 

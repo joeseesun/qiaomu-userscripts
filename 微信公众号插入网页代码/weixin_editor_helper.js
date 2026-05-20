@@ -8,8 +8,8 @@
 // @match        https://mp.weixin.qq.com/cgi-bin/operate_appmsg*
 // @match        https://mp.weixin.qq.com/cgi-bin/home*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_editor_helper.js
-// @updateURL    https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/weixin_editor_helper.js
+// @downloadURL  https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8F%92%E5%85%A5%E7%BD%91%E9%A1%B5%E4%BB%A3%E7%A0%81/weixin_editor_helper.js
+// @updateURL    https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8F%92%E5%85%A5%E7%BD%91%E9%A1%B5%E4%BB%A3%E7%A0%81/weixin_editor_helper.js
 // @homepageURL  https://github.com/joeseesun/qiaomu-userscripts
 // @supportURL   https://github.com/joeseesun/qiaomu-userscripts/issues
 // ==/UserScript==

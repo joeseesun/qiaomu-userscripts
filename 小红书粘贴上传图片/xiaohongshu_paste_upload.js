@@ -8,8 +8,8 @@
 // @match        https://creator.xiaohongshu.com/publish/note*
 // @grant        none
 // @run-at       document-end
-// @downloadURL  https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/xiaohongshu_paste_upload.js
-// @updateURL    https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/xiaohongshu_paste_upload.js
+// @downloadURL  https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/xiaohongshu_paste_upload.js
+// @updateURL    https://raw.githubusercontent.com/joeseesun/qiaomu-userscripts/main/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/xiaohongshu_paste_upload.js
 // @homepageURL  https://github.com/joeseesun/qiaomu-userscripts
 // @supportURL   https://github.com/joeseesun/qiaomu-userscripts/issues
 // ==/UserScript==
